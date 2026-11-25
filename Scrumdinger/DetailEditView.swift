@@ -23,8 +23,10 @@ struct DetailEditView: View {
                     ) {
                         Text("Length")
                     }
+                    .accessibilityValue("\(scrum.lengthInMinutes) minutes")
                     Spacer()
                     Text("\(scrum.lengthInMinutes) minutes")
+                        .accessibilityHidden(true)
                 }
             }
             Section(header: Text("Attendees")) {
@@ -46,6 +48,7 @@ struct DetailEditView: View {
                         }
                     }) {
                         Image(systemName: "plus.circle.fill")
+                            .accessibilityLabel("Add attendee")
                     }
                     .disabled(attendeeName.isEmpty)
                 }
